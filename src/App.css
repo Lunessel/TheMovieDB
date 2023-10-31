@@ -32,8 +32,6 @@ body {
   background: #111;
   opacity: .9;
   z-index: 0;
-  overflow: scroll;
-  scrollbar-color: snow white;
   /*scrollbar-width: 12px  thin  none;*/
 }
 

@@ -13,7 +13,6 @@ const Layout = () => {
     const location = useLocation();
     const dispatch = useDispatch();
     const {currentPage, total_pages} = useSelector((state => state.movieReducer));
-    console.log(currentPage + " " + total_pages);
     const changePageNumber = (e) => {
         dispatch(ChangePage(e));
     }
@@ -27,7 +26,7 @@ const Layout = () => {
             </div>}
             {location.pathname === "/" && <Pagination
                 className={'rc-pagination'}
-                total={total_pages}
+                total={Math.min(total_pages, 500*20)}
                 pageSize={20}
                 onChange={changePageNumber}
             />}

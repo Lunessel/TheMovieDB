@@ -62,6 +62,19 @@ const movieSlice = createSlice( {
         },
         [getPopularMovies.rejected]: (state, action) =>{
 
+        },
+        [getSearchedMovies.pending]: (state, action) =>{
+            state.status = 'pending'
+            state.error = null
+        },
+        [getSearchedMovies.fulfilled]: (state, action) =>{
+            state.status = 'fulfilled'
+            state.movies = action.payload['results']
+            state.total_pages = action.payload['total_pages']
+            // console.log(state.total_pages)
+        },
+        [getSearchedMovies.rejected]: (state, action) =>{
+
         }
     }
 })
